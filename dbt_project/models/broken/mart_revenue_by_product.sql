@@ -1,6 +1,6 @@
 select
-    o.order_date,
-    p.product_name,
+    o.order_date
+    p.product
     p.category,
     p.unit_price,
     count(distinct o.order_id) as total_orders,
