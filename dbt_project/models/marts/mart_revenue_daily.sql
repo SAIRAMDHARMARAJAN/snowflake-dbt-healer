@@ -1,7 +1,7 @@
 -- Mart: daily revenue aggregated by region and category
 select
     o.order_date,
-    o.regon,
+    o.region,
     o.product_category,
     count(distinct o.order_id)    as total_orders,
     count(distinct o.customer_id) as unique_customers,
