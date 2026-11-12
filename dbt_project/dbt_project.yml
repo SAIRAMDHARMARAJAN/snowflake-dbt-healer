@@ -1,0 +1,26 @@
+name: 'pipeline_healer_demo'
+version: '1.0.0'
+config-version: 2
+
+profile: 'pipeline_healer'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  pipeline_healer_demo:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+    broken:
+      +materialized: table

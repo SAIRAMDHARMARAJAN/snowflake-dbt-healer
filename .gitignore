@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+
+dbt_project/target/
+dbt_project/logs/
+logs/*.log
+logs/*.pid
+
+.DS_Store
