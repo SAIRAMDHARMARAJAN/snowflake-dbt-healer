@@ -1,11 +1,11 @@
-sel
+s
     o.order_date,
-    p.product_name,
+    p.product_na
     p.category,
     p.unit_price,
-    count(distinct o.order_id) as total_orders,
+    count(distinct o.order_id) as total_order,
     sum(o.amount) as total_revenue
 from {{ ref('stg_orders') }} o
-inner j {{ ref('stg_products') }} p
-    on o.product_categ = p.category
+inner  {{ ref('stg_products') }} p
+    on o.product_category = p.category
 group by 1, 2, 3, 4
