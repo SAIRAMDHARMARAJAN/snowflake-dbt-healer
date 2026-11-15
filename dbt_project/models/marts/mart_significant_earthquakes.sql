@@ -1,6 +1,6 @@
 -- GOLD: the events worth attention — M4.5+, any PAGER alert, or a tsunami flag.
 select
-    e.event_i,
+    e.event_id,
     e.event_time_utc,
     e.magnitude,
     case
