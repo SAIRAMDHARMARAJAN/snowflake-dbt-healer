@@ -1,6 +1,6 @@
 -- GOLD: one row per region — how active it is now and its strongest recent quake.
 select
-    e.regio,
+    e.region,
     count(*)                                                        as earthquakes,
     count_if(e.event_time_utc >= dateadd('hour', -24, sysdate()))   as earthquakes_last_24h,
     max(e.magnitude)                                                as max_magnitude,
