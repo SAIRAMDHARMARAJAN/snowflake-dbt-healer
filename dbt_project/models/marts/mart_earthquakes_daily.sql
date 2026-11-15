@@ -1,4 +1,4 @@
-selec
+select
     e.event_date_utc,
     e.region,
     count(*)                                      as earthquakes,
