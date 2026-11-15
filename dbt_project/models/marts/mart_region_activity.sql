@@ -10,7 +10,7 @@ select
     round(avg(e.depth_km), 1)                                       as avg_depth_km,
     max(e.event_time_utc)                                           as latest_event_utc,
     round(100 * count_if(e.review_status = 'reviewed') / count(*), 1) as reviewed_pct
-from {{ ref('stg_earthquake') }} e
+from {{ ref('stg_earthquakes') }} e
 where e.event_type = 'earthquake'
   and e.magnitude is not null
 group by 1
