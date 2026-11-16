@@ -1,7 +1,7 @@
 with source as (
-    select * from {{ source('raw', 'raw_product') }}
+    select * from {{ source('raw', 'raw_products') }}
 ),
-cleaned  (                           -- ERROR: Missing AS keyword.
+cleaned as (
     select
         upper(trim(product_id))                   as product_id,
         trim(product_name)                        as product_name,
@@ -13,9 +13,9 @@ cleaned  (                           -- ERROR: Missing AS keyword.
     from source
     where nullif(trim(product_id), '') is not null
 )
-select **                             -- ERROR: Invalid SELECT syntax.
+select *
 from cleaned
-qualify row_number() ov               -- ERROR: Incorrect keyword (OV instead of OVER).
+qualify row_number() over (
     partition by product_id
     order by updated_at desc nulls last, loaded_at desc
-) = 2                                -- ERROR: Unexpected closing parenthesis & Logic Error.
+) = 1
