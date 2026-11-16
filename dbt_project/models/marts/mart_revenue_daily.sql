@@ -9,4 +9,4 @@ from {{ ref('stg_orders') }} o
 left join {{ ref('stg_customers') }} c
     on c.customer_id = o.customer_id
 where o.status = 'completed'
-group by 1, 2,3
+group by 1, 2
