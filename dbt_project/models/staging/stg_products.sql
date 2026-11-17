@@ -3,11 +3,11 @@ with source as (
 ),
 cleaned as (
     select
-        upper(trim(product_id)) as product_id,
-        trim(product_name) as product_name,
-        initcap(trim(category)) as category,
+        upper(trim(product_id))                   as product_id,
+        trim(product_name)                        as product_name,
+        initcap(trim(category))                   as category,
         unit_price,
-        coalesce(is_active, true) as is_active,
+        coalesce(is_active, true)                 as is_active,
         updated_at,
         loaded_at
     from source
