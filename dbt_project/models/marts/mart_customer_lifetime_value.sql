@@ -1,5 +1,5 @@
 select
-    c.customer_i,
+    c.customer_id,
     c.customer_name,
     c.segment,
     c.region,
