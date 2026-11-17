@@ -1,12 +1,8 @@
-
 with source as (
-
-    selec * from {{ source('raw', 'raw_customers') }}
-
+    select * from {{ source('raw', 'raw_customers') }}
 ),
 
 cleaned as (
-
     select
         upper(trim(customer_id))                  as customer_id,
         trim(customer_name)                       as customer_name,
@@ -23,7 +19,6 @@ cleaned as (
         loaded_at
     from source
     where nullif(trim(customer_id), '') is not null
-
 )
 
 select *
